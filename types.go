@@ -129,6 +129,9 @@ func (d *Device) Data() (int64, map[string]interface{}) {
 	if d.DashboardData.GustStrength != nil {
 		m["GustStrength"] = *d.DashboardData.GustStrength
 	}
+	if d.DashboardData.HealthIdx != nil {
+		m["HealthIdx"] = *d.DashboardData.HealthIdx
+	}
 
 	return *d.DashboardData.LastMeasure, m
 }
@@ -167,6 +170,7 @@ func (d *Device) Info() (int64, map[string]interface{}) {
 // GustAngle : Direction of the last 5 min highest gust wind @ LastMeasure (in °)
 // GustStrength : Speed of the last 5 min highest gust wind @ LastMeasure (in km/h)
 // LastMeasure : Contains timestamp of last data received
+// HealthIdx: Index that characterises health status
 type DashboardData struct {
 	Temperature      *float32 `json:"Temperature,omitempty"` // use pointer to detect ommitted field by json mapping
 	Humidity         *int32   `json:"Humidity,omitempty"`
@@ -182,4 +186,5 @@ type DashboardData struct {
 	GustAngle        *int32   `json:"GustAngle,omitempty"`
 	GustStrength     *int32   `json:"GustStrength,omitempty"`
 	LastMeasure      *int64   `json:"time_utc"`
+	HealthIdx        *int32   `json:"health_idx,omitempty"`
 }
