@@ -12,7 +12,7 @@ const (
 	baseURL   = "https://api.netatmo.net/"
 	authURL   = baseURL + "oauth2/authorize"
 	tokenURL  = baseURL + "oauth2/token"
-	deviceURL = baseURL + "/api/gethomecoachesdata"
+	deviceURL = baseURL + "/api/gethomecoachsdata"
 )
 
 var (
